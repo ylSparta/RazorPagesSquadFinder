@@ -1,0 +1,48 @@
+﻿@page
+@model RazorPagesSquadFinder.Pages.Squads.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Squad[0].SquadLeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Squad[0].NoOfSquadMembers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Squad[0].Sport)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Squad) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SquadLeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfSquadMembers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sport)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SquadId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.SquadId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SquadId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
