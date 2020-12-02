@@ -15,6 +15,9 @@ namespace RazorPagesSquadFinder
 {
     public class Startup
     {
+        private string _squadFinderConnectionString = null;
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,10 +28,11 @@ namespace RazorPagesSquadFinder
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            _squadFinderConnectionString = Configuration["SquadFinder:ConnectionStrings"];
             services.AddRazorPages();
 
             services.AddDbContext<RazorPagesSquadFinderContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("RazorPagesSquadFinderContext")));
+                    options.UseSqlServer(_squadFinderConnectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
