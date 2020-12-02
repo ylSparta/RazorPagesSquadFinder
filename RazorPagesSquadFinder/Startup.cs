@@ -60,6 +60,7 @@ namespace RazorPagesSquadFinder
             {
                 endpoints.MapRazorPages();
             });
+
         }
     }
 }
