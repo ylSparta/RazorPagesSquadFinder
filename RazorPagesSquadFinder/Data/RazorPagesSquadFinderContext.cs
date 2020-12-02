@@ -17,5 +17,7 @@ namespace RazorPagesSquadFinder.Data
         public DbSet<RazorPagesSquadFinder.Models.Member> Member { get; set; }
 
         public DbSet<RazorPagesSquadFinder.Models.Squad> Squad { get; set; }
+
+        public DbSet<RazorPagesSquadFinder.Models.SquadMember> SquadMember { get; set; }
     }
 }
